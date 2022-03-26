@@ -3,12 +3,12 @@ import { Reducer } from './Data/Reducer';
 import { DispatchContext, DispatchProvider } from './Context/DispatchContext';
 import { ServiceContext, ServiceProvider } from './Context/ServiceContext';
 import { StateContext, StateProvider } from './Context/StateContext';
-import { CoreProviderProps, withCoreProvider, WithCoreProviderProps } from './HOC/WithCoreProvider';
+import { CoreProviderProps , CoreProvider } from './CoreProvider/CoreProvider';
 import { useDispatch, useServiceFactory, useState } from './Hooks/Hooks';
 
-export { withCoreProvider };
+export { CoreProvider };
 
-export type { WithCoreProviderProps, CoreProviderProps };
+export type { CoreProviderProps };
 
 export { useDispatch, useState, useServiceFactory };
 

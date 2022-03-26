@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Action } from '../Data/Action';
 import { Reducer } from '../Data/Reducer';
-import { withCoreProvider } from '../HOC/WithCoreProvider';
+import { CoreProvider } from '../CoreProvider/CoreProvider';
 import { useDispatch, useServiceFactory, useState } from '../Hooks/Hooks';
 
 class ServiceFactory {
@@ -12,17 +12,20 @@ class ServiceFactory {
     }
 }
 
-const MyCoolComponent: React.FC = () => {
+const MyCoolComponent: React.FC = props => {
+    const initialState: State = { value: 'initial value' };
     return (
-        <div>
-            <h1>MY COOL COMPONENT</h1>
-            <InnerComponent />
-            <ValueComponent />
-        </div>
+        <CoreProvider
+            reducers={[reducer]}
+            dispatchCallback={dispatch => setTimeout(() => dispatch(setValue('using dispatch callback')) , 3000)}
+            stateCallback={state => console.log(state)}
+            createServiceFactory={() => new ServiceFactory()}
+            initialState={initialState}
+        >
+            {props.children}
+        </CoreProvider>
     );
 };
-
-const WithProvider = withCoreProvider(MyCoolComponent);
 
 const InnerComponent: React.FC = () => {
     const dispatch = useDispatch();
@@ -36,10 +39,10 @@ const InnerComponent: React.FC = () => {
     return <button onClick={onClick}>SET VALUE</button>;
 };
 
-const ValueComponent : React.FC = () => {
+const ValueComponent: React.FC = () => {
     const state = useState<State>();
-    return <h1>{state.value}</h1>
-}
+    return <h1>{state.value}</h1>;
+};
 
 interface State {
     value: string;
@@ -62,12 +65,10 @@ const reducer: Reducer<State, Action<any, any>> = (state, action) => {
 export const Example: React.FC = props => {
     const initialState: State = { value: 'initial value' };
     return (
-        <WithProvider
-            reducers={[reducer]}
-            dispatchCallback={dispatch => dispatch(setValue("using dispatch callback"))}
-            stateCallback={state => console.log(state)}
-            createServiceFactory={() => new ServiceFactory()}
-            initialState={initialState}
-        />
+        <MyCoolComponent>
+            <h1>MY COOL COMPONENT</h1>
+            <InnerComponent />
+            <ValueComponent />
+        </MyCoolComponent>
     );
 };
