@@ -16,3 +16,5 @@ yarn.lock
 yarn-error.log
 config
 .babelrc
+.prettierrc
+.eslintrc.js
