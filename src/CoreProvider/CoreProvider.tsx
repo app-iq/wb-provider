@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useReducer } from 'react';
+import React, {PropsWithChildren, useEffect, useMemo, useReducer} from 'react';
 import { Action } from '../Data/Action';
 import { buildRootReducer, Reducer } from '../Data/Reducer';
 import { DispatchContext, DispatchFunction } from '../Context/DispatchContext';
@@ -13,7 +13,7 @@ export interface CoreProviderProps {
     initialState: unknown;
 }
 
-export const CoreProvider: React.FC<CoreProviderProps> = props => {
+export const CoreProvider: React.FC<PropsWithChildren<CoreProviderProps>> = props => {
     const reducer = useMemo(() => buildRootReducer(props.reducers ?? []), [props.reducers]);
     const [state, dispatch] = useReducer(reducer, props.initialState);
     const sf = useMemo(() => {

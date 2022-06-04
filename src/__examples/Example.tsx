@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, {PropsWithChildren, useCallback} from 'react';
 import { Action } from '../Data/Action';
 import { Reducer } from '../Data/Reducer';
 import { CoreProvider } from '../CoreProvider/CoreProvider';
@@ -12,7 +12,7 @@ class ServiceFactory {
     }
 }
 
-const MyCoolComponent: React.FC = props => {
+const MyCoolComponent: React.FC<any> = (props:PropsWithChildren<any>) => {
     const initialState: State = { value: 'initial value' };
     return (
         <CoreProvider
@@ -62,7 +62,7 @@ const reducer: Reducer<State, Action<any, any>> = (state, action) => {
     return state;
 };
 
-export const Example: React.FC = props => {
+export const Example: React.FC = (props: PropsWithChildren<any>) => {
     const initialState: State = { value: 'initial value' };
     return (
         <MyCoolComponent>
