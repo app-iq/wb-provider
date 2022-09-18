@@ -1,6 +1,6 @@
 {
   "name": "wb-core-provider",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": false,
   "main": "build/main.js",
   "types": "build/main.d.ts",
