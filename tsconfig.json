@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "outDir": "./dist",
+        "outDir": "./build",
         "declaration": true,
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -19,5 +19,6 @@
         "jsx": "react-jsx"
     },
     "include": ["src"],
-    "exclude": ["node_modules", "src/__examples", "src/__server", "src/__tests__"]
+    "exclude": ["node_modules",
+      "src/Examples", "src/__server", "src/__tests__"]
 }

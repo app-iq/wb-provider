@@ -1,4 +1,4 @@
-import { StateContext } from './../Context/StateContext';
+import { StateContext } from '../Context/StateContext';
 import { useContext } from 'react';
 import { DispatchContext } from '../Context/DispatchContext';
 import { ServiceContext } from '../Context/ServiceContext';

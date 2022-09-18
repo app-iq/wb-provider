@@ -12,13 +12,11 @@ class ServiceFactory {
     }
 }
 
-const MyCoolComponent: React.FC<any> = (props:PropsWithChildren<any>) => {
+const MyCoolComponent: React.FC<PropsWithChildren> = (props:PropsWithChildren) => {
     const initialState: State = { value: 'initial value' };
     return (
         <CoreProvider
             reducers={[reducer]}
-            dispatchCallback={dispatch => setTimeout(() => dispatch(setValue('using dispatch callback')) , 3000)}
-            stateCallback={state => console.log(state)}
             createServiceFactory={() => new ServiceFactory()}
             initialState={initialState}
         >
@@ -48,22 +46,21 @@ interface State {
     value: string;
 }
 
-function setValue(value: string): Action<any, any> {
+function setValue(value: string): Action<string, string> {
     return {
         type: 'SET_VALUE',
         payload: value,
     };
 }
 
-const reducer: Reducer<State, Action<any, any>> = (state, action) => {
+const reducer: Reducer<State, Action<string, string>> = (state: State, action): State => {
     if (action.type === 'SET_VALUE') {
         return { ...state, value: action.payload };
     }
     return state;
 };
 
-export const Example: React.FC = (props: PropsWithChildren<any>) => {
-    const initialState: State = { value: 'initial value' };
+export const Example: React.FC = () => {
     return (
         <MyCoolComponent>
             <h1>MY COOL COMPONENT</h1>
