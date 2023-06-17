@@ -1,21 +1,21 @@
-import { Action } from './Data/Action';
-import { Reducer } from './Data/Reducer';
-import { DispatchContext, DispatchProvider, DispatchFunction } from './Context/DispatchContext';
-import { ServiceContext, ServiceProvider } from './Context/ServiceContext';
-import { StateContext, StateProvider } from './Context/StateContext';
-import { CoreProviderProps, CoreProvider } from './CoreProvider/CoreProvider';
-import { useDispatch, useServiceFactory, useState } from './Hooks/Hooks';
+import {Action} from './Data/Action';
+import {Reducer} from './Data/Reducer';
+import {DispatchContext, DispatchProvider, DispatchFunction} from './Context/DispatchContext';
+import {ServiceContext, ServiceProvider} from './Context/ServiceContext';
+import {StateContext, StateProvider} from './Context/StateContext';
+import {CoreProviderProps, CoreProvider} from './CoreProvider/CoreProvider';
+import {useDispatch, useServiceFactory, useState} from './Hooks/Hooks';
 
-export { CoreProvider };
+export {CoreProvider};
 
-export type { CoreProviderProps };
+export type {CoreProviderProps};
 
-export { useDispatch, useState, useServiceFactory };
+export {useDispatch, useState, useServiceFactory};
 
-export { StateProvider, ServiceProvider, DispatchProvider };
+export {StateProvider, ServiceProvider, DispatchProvider};
 
-export { StateContext, DispatchContext, ServiceContext };
+export {StateContext, DispatchContext, ServiceContext};
 
-export type { Reducer, Action };
+export type {Reducer, Action};
 
-export type { DispatchFunction };
+export type {DispatchFunction};

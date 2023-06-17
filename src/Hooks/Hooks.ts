@@ -1,7 +1,7 @@
-import { StateContext } from '../Context/StateContext';
-import { useContext } from 'react';
-import { DispatchContext } from '../Context/DispatchContext';
-import { ServiceContext } from '../Context/ServiceContext';
+import {useContext} from 'react';
+import {StateContext} from '../Context/StateContext';
+import {DispatchContext} from '../Context/DispatchContext';
+import {ServiceContext} from '../Context/ServiceContext';
 
 export function useState<TState = unknown>(): TState {
     return useContext(StateContext) as TState;

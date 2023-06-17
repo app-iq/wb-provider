@@ -1,5 +1,5 @@
 import React from 'react';
-import { Action } from '../Data/Action';
+import {Action} from '../Data/Action';
 
 export type DispatchFunction = (action: Action<unknown, unknown>) => void;
 

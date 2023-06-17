@@ -12,16 +12,17 @@ export interface CoreProviderProps {
     initialState: unknown;
 }
 
-export const CoreProvider: React.FC<PropsWithChildren<CoreProviderProps>> = props => {
-    const reducer = useMemo(() => buildRootReducer(props.reducers ?? []), [props.reducers]);
-    const [state, dispatch] = useReducer(reducer, props.initialState);
-    const sf = useMemo(() => props.createServiceFactory(dispatch, state, props), [state, dispatch, props]);
+export function CoreProvider(props: PropsWithChildren<CoreProviderProps>) {
+    const {reducers, initialState, createServiceFactory, children} = props;
+    const reducer = useMemo(() => buildRootReducer(reducers ?? []), [reducers]);
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const sf = useMemo(() => createServiceFactory(dispatch, state, props), [createServiceFactory, state, props]);
 
     return (
         <DispatchContext.Provider value={dispatch}>
             <StateContext.Provider value={state}>
-                <ServiceContext.Provider value={sf}>{props.children}</ServiceContext.Provider>
+                <ServiceContext.Provider value={sf}>{children}</ServiceContext.Provider>
             </StateContext.Provider>
         </DispatchContext.Provider>
     );
-};
+}
