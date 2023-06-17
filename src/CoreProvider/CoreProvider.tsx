@@ -14,7 +14,7 @@ export interface CoreProviderProps {
 
 export function CoreProvider(props: PropsWithChildren<CoreProviderProps>) {
     const {reducers, initialState, createServiceFactory, children} = props;
-    const reducer = useMemo(() => buildRootReducer(reducers ?? []), [reducers]);
+    const reducer = useMemo(() => buildRootReducer(reducers), [reducers]);
     const [state, dispatch] = useReducer(reducer, initialState);
     const sf = useMemo(() => createServiceFactory(dispatch, state, props), [createServiceFactory, state, props]);
 
