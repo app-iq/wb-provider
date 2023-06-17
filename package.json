@@ -5,17 +5,15 @@
   "main": "build/main.js",
   "types": "build/main.d.ts",
   "scripts": {
-    "start": "react-scripts start",
     "build": "rm -rf ./build && tsc --noEmit false && rm -rf ./build/Examples && rm ./build/index.js && rm ./build/index.d.ts",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:fix": "eslint . --fix",
-    "lint": "eslint ."
+    "dev": "vite",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint src --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
@@ -34,18 +32,9 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.1.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript": "^5.1.3",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "vite": "^4.3.9"
   }
 }
+

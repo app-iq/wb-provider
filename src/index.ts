@@ -1,12 +1,10 @@
 import {Action} from './Data/Action';
 import {Reducer} from './Data/Reducer';
-import {DispatchContext, DispatchProvider, DispatchFunction} from './Context/DispatchContext';
+import {DispatchContext, DispatchFunction, DispatchProvider} from './Context/DispatchContext';
 import {ServiceContext, ServiceProvider} from './Context/ServiceContext';
+import {CoreProviderProps} from './CoreProvider/CoreProvider';
+import {useDispatch, useState, useServiceFactory} from './Hooks/Hooks';
 import {StateContext, StateProvider} from './Context/StateContext';
-import {CoreProviderProps, CoreProvider} from './CoreProvider/CoreProvider';
-import {useDispatch, useServiceFactory, useState} from './Hooks/Hooks';
-
-export {CoreProvider};
 
 export type {CoreProviderProps};
 

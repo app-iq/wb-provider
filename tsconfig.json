@@ -3,8 +3,12 @@
         "target": "es5",
         "outDir": "./build",
         "declaration": true,
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": false,
         "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
@@ -18,7 +22,16 @@
         "noEmit": true,
         "jsx": "react-jsx"
     },
-    "include": ["src"],
-    "exclude": ["node_modules",
-      "src/Examples", "src/__server", "src/__tests__"]
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/__server__"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }
