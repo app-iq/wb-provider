@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, useCallback} from 'react';
 import {Action} from '../Data/Action';
 import {Reducer} from '../Data/Reducer';
-import {CoreProvider} from '../CoreProvider/CoreProvider';
+import {WBProvider} from '../CoreProvider/WBProvider';
 import {useDispatch, useServiceFactory, useState} from '../Hooks/Hooks';
 
 class ServiceFactory {
@@ -36,13 +36,9 @@ const reducer: Reducer<State, Action<string, string>> = (state: State, action): 
 function MyCoolComponent({children}: PropsWithChildren) {
     const initialState: State = {value: 'initial value'};
     return (
-        <CoreProvider
-            reducers={[reducer]}
-            createServiceFactory={() => new ServiceFactory()}
-            initialState={initialState}
-        >
+        <WBProvider reducers={[reducer]} createServiceFactory={() => new ServiceFactory()} initialState={initialState}>
             {children}
-        </CoreProvider>
+        </WBProvider>
     );
 }
 

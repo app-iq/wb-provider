@@ -2,11 +2,11 @@ import {Action} from './Data/Action';
 import {Reducer} from './Data/Reducer';
 import {DispatchContext, DispatchFunction, DispatchProvider} from './Context/DispatchContext';
 import {ServiceContext, ServiceProvider} from './Context/ServiceContext';
-import {CoreProviderProps} from './CoreProvider/CoreProvider';
+import {WBProviderProps} from './CoreProvider/WBProvider';
 import {useDispatch, useState, useServiceFactory} from './Hooks/Hooks';
 import {StateContext, StateProvider} from './Context/StateContext';
 
-export type {CoreProviderProps};
+export type {WBProviderProps};
 
 export {useDispatch, useState, useServiceFactory};
 

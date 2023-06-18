@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import {CoreProvider} from '../../CoreProvider/CoreProvider';
+import {WBProvider} from '../../CoreProvider/WBProvider';
 import {useDispatch, useServiceFactory, useState} from '../../Hooks/Hooks';
 import {Reducer} from '../../Data/Reducer';
 import {Action} from '../../Data/Action';
@@ -9,9 +9,9 @@ import {Action} from '../../Data/Action';
 describe('CoreProvider', () => {
     it('should render children', () => {
         render(
-            <CoreProvider createServiceFactory={jest.fn()} reducers={[]} initialState={{}}>
+            <WBProvider createServiceFactory={jest.fn()} reducers={[]} initialState={{}}>
                 <h1>Test Component</h1>
-            </CoreProvider>,
+            </WBProvider>,
         );
         expect(screen.getByText('Test Component')).toBeInTheDocument();
     });
@@ -23,9 +23,9 @@ describe('CoreProvider', () => {
         }
 
         render(
-            <CoreProvider createServiceFactory={jest.fn()} reducers={[]} initialState={{value: 'initial value'}}>
+            <WBProvider createServiceFactory={jest.fn()} reducers={[]} initialState={{value: 'initial value'}}>
                 <InnerComponent />
-            </CoreProvider>,
+            </WBProvider>,
         );
         expect(screen.getByRole('alert')).toHaveTextContent('initial value');
     });
@@ -55,9 +55,9 @@ describe('CoreProvider', () => {
         };
 
         render(
-            <CoreProvider createServiceFactory={jest.fn()} reducers={[reducer]} initialState={{value: ''}}>
+            <WBProvider createServiceFactory={jest.fn()} reducers={[reducer]} initialState={{value: ''}}>
                 <InnerComponent />
-            </CoreProvider>,
+            </WBProvider>,
         );
 
         await userEvent.click(screen.getByText('Update State'));
@@ -79,9 +79,9 @@ describe('CoreProvider', () => {
         }
 
         render(
-            <CoreProvider createServiceFactory={() => serviceFactory} reducers={[]} initialState={{}}>
+            <WBProvider createServiceFactory={() => serviceFactory} reducers={[]} initialState={{}}>
                 <InnerComponent />
-            </CoreProvider>,
+            </WBProvider>,
         );
 
         await userEvent.click(screen.getByText('Action'));
