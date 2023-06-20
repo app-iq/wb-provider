@@ -1,9 +1,9 @@
 {
   "name": "wb-provider",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": false,
-  "main": "build/main.js",
-  "types": "build/main.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "build": "node build.js",
     "dev": "vite",
