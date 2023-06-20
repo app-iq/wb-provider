@@ -1,4 +1,5 @@
 src
+coverage
 public
 node_modules
 tsconfig.json
@@ -6,3 +7,8 @@ yarn.lock
 .idea
 .eslintrc.js
 .eslintignore
+.prettierrc
+index.html
+jest.config.ts
+tsconfig.node.json
+vite.config.ts
