@@ -4,4 +4,5 @@ export default {
         '^.+\\.tsx?$': 'ts-jest',
     },
     coveragePathIgnorePatterns: ['Examples'],
+    testMatch: ['**/src/**/*.test.ts?(x)'],
 };

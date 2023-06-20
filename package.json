@@ -5,7 +5,7 @@
   "main": "build/main.js",
   "types": "build/main.d.ts",
   "scripts": {
-    "build": "rm -rf ./build && tsc --noEmit false && rm -rf ./build/Examples && rm ./build/index.js && rm ./build/index.d.ts",
+    "build": "node build.js",
     "dev": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0",
